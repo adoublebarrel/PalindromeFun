@@ -1,24 +1,30 @@
 var p = function(p){
-    p.isPalindrome = function(s, x1, x2)
+    var verify = function(s)
     {
-        var isIt = false;
+        var r = false, l = s.length;
         
+        // No more string to check, it's all matched, success!
+        if (l < 2) {
+            return true;
+        }
+        
+        // There's still string to go...
+        if (s[0] === s[l - 1]) {
+            r = verify(s.slice(1, -1));
+        }
+        
+        // Propogate success or failure up
+        // the recursion chain
+        return r;
+    }
+    
+    p.isPalindrome = function(s)
+    {   
         if (q.isS(s) === false || s.length < 2) {
             return false;
         }
         
-        x1 = x1 ? x1 : 0;
-        x2 = x2 ? x2 : s.length - 1;
-        
-        if (x1 >= x2 || [x1] === s[x2]) {
-            return true;
-        }
-        
-        if (s[x1] === s[x2]) {
-            isIt = p.isPalindrome(s, x1 + 1, x2 - 1);
-        }
-        
-        return isIt;
+        return verify(s);
     }
     return p;
 }(p || {});
