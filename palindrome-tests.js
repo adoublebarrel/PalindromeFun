@@ -6,9 +6,12 @@ test("p", function() {
 
 test("isPalindrome", function() {
     ok(q.isF(p.isPalindrome), "is a function");
-    equal(false, p.isPalindrome(1234), "rejects ints");
-    equal(false, p.isPalindrome(12.34), "rejects floats");   
-    equal(false, p.isPalindrome({}), "rejects objs");
-    equal(false, p.isPalindrome(function(){}), "rejects functions");
+    equal(p.isPalindrome(1234), false, "rejects ints");
+    equal(p.isPalindrome(12.34), false, "rejects floats");   
+    equal(p.isPalindrome({}), false,  "rejects objs");
+    equal(p.isPalindrome(function(){}), false, "rejects functions");
+    
+    equal(p.isPalindrome("hello"), false, "Rejects non-palidromic strings");
+    equal(p.isPalindrome("anna"), true, "Recognises even palindromes");
     
 });
