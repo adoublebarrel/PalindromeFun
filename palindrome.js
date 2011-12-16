@@ -3,7 +3,7 @@ var p = function(p){
     {
         var isIt = false;
         
-        if (q.isS(s) === false) {
+        if (q.isS(s) === false || s.length < 2) {
             return false;
         }
         
