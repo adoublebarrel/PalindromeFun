@@ -9,6 +9,7 @@ test("isPalindrome", function() {
     equal(p.isPalindrome(1234), false, "rejects ints");
     equal(p.isPalindrome(12.34), false, "rejects floats");   
     equal(p.isPalindrome({}), false,  "rejects objs");
+    equal(p.isPalindrome([1,2,3]), false,  "rejects arrays");
     equal(p.isPalindrome(function(){}), false, "rejects functions");
     equal(p.isPalindrome('a'), false, "rejects single characters");
     
